@@ -30,14 +30,8 @@ public class ChiShiAddon extends MeteorAddon {
 
         // HUD
 //        Hud.get().register(HudExample.INFO);
-        // 检测Boom是否开启，如果开启就关闭
-        // 如果游戏一直崩溃那就不好玩了
-        Boom boom = Modules.get().get(Boom.class);
-        if (boom != null && boom.isActive()) {
-            boom.toggle();
-        }
-    }
 
+    }
     @Override
     public void onRegisterCategories() {
         Modules.registerCategory(CATEGORY);
