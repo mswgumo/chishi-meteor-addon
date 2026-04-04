@@ -1,7 +1,9 @@
 package dev.mswgumo.chishi.meteor.addon.mixin;
 
+import dev.mswgumo.chishi.meteor.addon.modules.SelfDamage;
 import dev.mswgumo.chishi.meteor.addon.modules.ShortRange;
 import meteordevelopment.meteorclient.systems.modules.Modules;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerInteractionManager;
 import net.minecraft.entity.Entity;
 
@@ -15,10 +17,13 @@ import java.util.Objects;
 
 
 @Mixin(ClientPlayerInteractionManager.class)
-public class ShortRangeMixin {
+public class attackEntityMixin {
     @Inject(method = "attackEntity", at = @At("HEAD"), cancellable = true)
-    private void onAttackEntity(PlayerEntity player, Entity target, CallbackInfo ci){
-
+    private void onAttackEntity(PlayerEntity player, Entity target, CallbackInfo ci) {
+        MinecraftClient mc = MinecraftClient.getInstance();
+        if (Objects.requireNonNull(Modules.get().get(SelfDamage.class)).isActive() && mc.player != null) {
+            mc.player.networkHandler.sendChatCommand("kill");
+        }
         if (Objects.requireNonNull(Modules.get().get(ShortRange.class)).isActive() && player.distanceTo(target) > 1) {
             ci.cancel();
         }

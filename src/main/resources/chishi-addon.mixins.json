@@ -6,7 +6,7 @@
     "NoJumpMixin",
     "NoSprintMixin",
     "MinecraftClientJoinWorldMixin",
-    "ShortRangeMixin"
+    "attackEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1
