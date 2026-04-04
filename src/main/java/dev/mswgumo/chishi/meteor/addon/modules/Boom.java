@@ -11,6 +11,6 @@ public class Boom extends Module {
     }
     @EventHandler
     public void onTick(TickEvent.Pre event) {
-        throw new RuntimeException("一键崩端");
+        throw new RuntimeException("Boom!!!");
     }
 }
