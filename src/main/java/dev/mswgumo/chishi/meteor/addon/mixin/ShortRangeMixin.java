@@ -18,10 +18,8 @@ import java.util.Objects;
 public class ShortRangeMixin {
     @Inject(method = "attackEntity", at = @At("HEAD"), cancellable = true)
     private void onAttackEntity(PlayerEntity player, Entity target, CallbackInfo ci){
-        if (Objects.requireNonNull(Modules.get().get(ShortRange.class)).isActive()) return;
 
-
-        if (player.distanceTo(target) > 3) {
+        if (Objects.requireNonNull(Modules.get().get(ShortRange.class)).isActive() && player.distanceTo(target) > 3) {
             ci.cancel();
         }
 
