@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "chishi-addon",
   "version": "${version}",
-  "name": "赤石插件",
+  "name": "ChiShi addon",
   "description": "赤石插件",
   "authors": [
     "mswgumo"
