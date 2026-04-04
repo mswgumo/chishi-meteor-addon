@@ -5,7 +5,8 @@
   "client": [
     "NoJumpMixin",
     "NoSprintMixin",
-    "MinecraftClientJoinWorldMixin"
+    "MinecraftClientJoinWorldMixin",
+    "ShortRangeMixin"
   ],
   "injectors": {
     "defaultRequire": 1
