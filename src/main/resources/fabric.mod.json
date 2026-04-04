@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "chishi-addon",
+  "version": "${version}",
+  "name": "赤石插件",
+  "description": "赤石插件",
+  "authors": [
+    "mswgumo"
+  ],
+  "contact": {
+    "sources": "https://github.com/mswgumo/chishi-meteor-addon"
+  },
+  "icon": "assets/chishi/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "meteor": [
+      "dev.mswgumo.chishi.meteor.addon.ChiShiAddon"
+    ]
+  },
+  "mixins": [
+    "chishi-addon.mixins.json"
+  ],
+  "custom": {
+    "meteor-client:color": "225,25,25",
+    "modmenu": {
+      "parent": {
+        "id": "meteor-client"
+      }
+    }
+  },
+  "depends": {
+    "java": ">=21",
+    "minecraft": ["${mc_version}"],
+    "meteor-client": "*"
+  }
+}
