@@ -2,6 +2,7 @@ package dev.mswgumo.chishi.meteor.addon;
 
 import com.mojang.logging.LogUtils;
 import dev.mswgumo.chishi.meteor.addon.modules.NoJump;
+import dev.mswgumo.chishi.meteor.addon.modules.NoSprint;
 import meteordevelopment.meteorclient.addons.GithubRepo;
 import meteordevelopment.meteorclient.addons.MeteorAddon;
 import meteordevelopment.meteorclient.systems.hud.HudGroup;
@@ -21,6 +22,7 @@ public class ChiShiAddon extends MeteorAddon {
         // Modules
 //        Modules.get().add(new ModuleExample());
         Modules.get().add(new NoJump());
+        Modules.get().add(new NoSprint());
         // Commands
 //        Commands.add(new CommandExample());
 
