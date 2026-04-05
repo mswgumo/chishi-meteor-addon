@@ -22,6 +22,11 @@ public class attackEntityMixin {
     private void onAttackEntity(PlayerEntity player, Entity target, CallbackInfo ci) {
         MinecraftClient mc = MinecraftClient.getInstance();
         if (Objects.requireNonNull(Modules.get().get(SelfDamage.class)).isActive() && mc.player != null) {
+            // 检测到是3C3U，就执行3C3U的自杀指令
+            if (mc.getCurrentServerEntry() != null && mc.getCurrentServerEntry().address.equals("3c3u.org")) {
+                mc.player.networkHandler.sendChatCommand("suicide --confirm");
+                return;
+            }
             mc.player.networkHandler.sendChatCommand("kill");
         }
         if (Objects.requireNonNull(Modules.get().get(ShortRange.class)).isActive() && player.distanceTo(target) > 1) {
