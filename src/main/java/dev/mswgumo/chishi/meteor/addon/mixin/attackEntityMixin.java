@@ -22,10 +22,12 @@ public class attackEntityMixin {
     @Inject(method = "attackEntity", at = @At("HEAD"), cancellable = true)
     private void onAttackEntity(PlayerEntity player, Entity target, CallbackInfo ci) {
         MinecraftClient mc = MinecraftClient.getInstance();
-        if (Objects.requireNonNull(Modules.get().get(AntiAura.class)).isActive() && mc.player != null) {
+        if (mc.player == null) return;
+
+        if (Objects.requireNonNull(Modules.get().get(AntiAura.class)).isActive()) {
             mc.player.dropSelectedItem(true);
         }
-        if (Objects.requireNonNull(Modules.get().get(SelfDamage.class)).isActive() && mc.player != null) {
+        if (Objects.requireNonNull(Modules.get().get(SelfDamage.class)).isActive()) {
             // 检测到是3C3U，就执行3C3U的自杀指令
             if (mc.getCurrentServerEntry() != null && mc.getCurrentServerEntry().address.equalsIgnoreCase("3c3u.org")) {
                 mc.player.networkHandler.sendChatCommand("suicide --confirm");
