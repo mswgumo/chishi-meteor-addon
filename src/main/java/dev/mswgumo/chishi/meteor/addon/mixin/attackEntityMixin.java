@@ -1,5 +1,6 @@
 package dev.mswgumo.chishi.meteor.addon.mixin;
 
+import dev.mswgumo.chishi.meteor.addon.modules.AntiAura;
 import dev.mswgumo.chishi.meteor.addon.modules.SelfDamage;
 import dev.mswgumo.chishi.meteor.addon.modules.ShortRange;
 import meteordevelopment.meteorclient.systems.modules.Modules;
@@ -21,6 +22,9 @@ public class attackEntityMixin {
     @Inject(method = "attackEntity", at = @At("HEAD"), cancellable = true)
     private void onAttackEntity(PlayerEntity player, Entity target, CallbackInfo ci) {
         MinecraftClient mc = MinecraftClient.getInstance();
+        if (Objects.requireNonNull(Modules.get().get(AntiAura.class)).isActive() && mc.player != null) {
+            mc.player.dropSelectedItem(true);
+        }
         if (Objects.requireNonNull(Modules.get().get(SelfDamage.class)).isActive() && mc.player != null) {
             // 检测到是3C3U，就执行3C3U的自杀指令
             if (mc.getCurrentServerEntry() != null && mc.getCurrentServerEntry().address.equalsIgnoreCase("3c3u.org")) {
