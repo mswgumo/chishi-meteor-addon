@@ -20,8 +20,8 @@
  - AutoInventoryShuffle（自动打乱背包）
 
 # 构建
- - 执行 git clone https://github.com/mswgumo/chishi-meteor-addon.git
+ - 执行 `git clone https://github.com/mswgumo/chishi-meteor-addon.git`
 
- - 执行 cd chishi-meteor-addon
+ - 执行 `cd chishi-meteor-addon`
 
- - 执行 gradlew build
+ - 执行 `gradlew build`
