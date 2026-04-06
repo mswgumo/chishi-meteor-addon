@@ -23,10 +23,11 @@ public class attackEntityMixin {
     private void onAttackEntity(PlayerEntity player, Entity target, CallbackInfo ci) {
         MinecraftClient mc = MinecraftClient.getInstance();
         if (mc.player == null) return;
-
+        // AntiAura的核心逻辑
         if (Objects.requireNonNull(Modules.get().get(AntiAura.class)).isActive()) {
             mc.player.dropSelectedItem(true);
         }
+        // SelfDamage的核心逻辑
         if (Objects.requireNonNull(Modules.get().get(SelfDamage.class)).isActive()) {
             // 检测到是3C3U，就执行3C3U的自杀指令
             if (mc.getCurrentServerEntry() != null && mc.getCurrentServerEntry().address.equalsIgnoreCase("3c3u.org")) {
@@ -35,6 +36,7 @@ public class attackEntityMixin {
             }
             mc.player.networkHandler.sendChatCommand("kill");
         }
+        // ShortRange的核心逻辑
         if (Objects.requireNonNull(Modules.get().get(ShortRange.class)).isActive() && player.distanceTo(target) > 1) {
             ci.cancel();
         }
