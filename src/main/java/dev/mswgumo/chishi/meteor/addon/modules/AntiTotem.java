@@ -16,16 +16,26 @@ public class AntiTotem extends Module {
     @EventHandler
     public void onTick(TickEvent.Pre event) {
         // 防止空指针
-        if (mc.player == null) return;
+        if (mc.player == null || mc.interactionManager == null) return;
         // 判断一下副手是否是图腾
-        ItemStack Offhand = mc.player.getOffHandStack();
+        ItemStack Offhand = null;
+        Offhand = mc.player.getOffHandStack();
         if (Offhand.getItem() == Items.TOTEM_OF_UNDYING) {
-            mc.interactionManager.clickSlot(mc.player.currentScreenHandler.syncId,
+            mc.interactionManager.clickSlot(
+                mc.player.currentScreenHandler.syncId,
                 45,
-                1,
-                SlotActionType.THROW,
+                0,
+                SlotActionType.PICKUP,
                 mc.player
-                );
+            );
+            mc.interactionManager.clickSlot(
+                mc.player.currentScreenHandler.syncId,
+                -999,
+                0,
+                SlotActionType.PICKUP,
+                mc.player
+            );
+            return;
         }
     }
 }
