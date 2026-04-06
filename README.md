@@ -18,3 +18,10 @@
  - SelfDamage（攻击实体后立马执行kill指令，需要支持服务器使用kill指令，如果是3C3U会使用suicide --confirm指令）
 
  - AutoInventoryShuffle（自动打乱背包）
+
+# 构建
+ - 执行 git clone https://github.com/mswgumo/chishi-meteor-addon.git
+
+ - 执行 cd chishi-meteor-addon
+
+ - 执行 gradlew build
