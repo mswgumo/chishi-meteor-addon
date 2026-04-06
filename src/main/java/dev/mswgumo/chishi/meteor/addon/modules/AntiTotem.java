@@ -11,7 +11,7 @@ import net.minecraft.screen.slot.SlotActionType;
 
 public class AntiTotem extends Module {
     public AntiTotem() {
-        super(ChiShiAddon.CATEGORY, "AntiTotem", "AntiTotem");
+        super(ChiShiAddon.CATEGORY, "anti-totem", "AntiTotem");
     }
     @EventHandler
     public void onTick(TickEvent.Pre event) {

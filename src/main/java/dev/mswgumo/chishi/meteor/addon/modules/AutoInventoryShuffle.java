@@ -10,7 +10,7 @@ import java.util.Random;
 public class AutoInventoryShuffle extends Module {
     private final Random random = new Random();
     public AutoInventoryShuffle() {
-        super(ChiShiAddon.CATEGORY, "Auto Inventory Shuffle", "AutoInventoryShuffle");
+        super(ChiShiAddon.CATEGORY, "auto-inventory-shuffle", "AutoInventoryShuffle");
     }
 
     @EventHandler

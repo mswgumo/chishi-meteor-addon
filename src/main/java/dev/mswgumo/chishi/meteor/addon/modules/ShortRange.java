@@ -4,7 +4,7 @@ import dev.mswgumo.chishi.meteor.addon.ChiShiAddon;
 import meteordevelopment.meteorclient.systems.modules.Module;
 public class ShortRange extends Module {
     public ShortRange() {
-        super(ChiShiAddon.CATEGORY, "Short Range", "Attack range is reduced");
+        super(ChiShiAddon.CATEGORY, "short-range", "Attack range is reduced");
     }
 
 }

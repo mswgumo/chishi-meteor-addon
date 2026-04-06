@@ -5,7 +5,7 @@ import meteordevelopment.meteorclient.systems.modules.Module;
 
 public class AntiAura extends Module {
     public AntiAura() {
-        super(ChiShiAddon.CATEGORY, "Anti Aura", "Anti Aura");
+        super(ChiShiAddon.CATEGORY, "anti-aura", "Anti Aura");
     }
 
 }
