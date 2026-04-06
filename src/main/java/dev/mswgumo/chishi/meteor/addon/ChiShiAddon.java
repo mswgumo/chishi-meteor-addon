@@ -27,6 +27,7 @@ public class ChiShiAddon extends MeteorAddon {
         Modules.get().add(new SelfDamage());
         Modules.get().add(new AutoInventoryShuffle());
         Modules.get().add(new AntiAura());
+        Modules.get().add(new AntiTotem());
         // Commands
 //        Commands.add(new CommandExample());
 
