@@ -7,10 +7,10 @@ import meteordevelopment.orbit.EventHandler;
 import net.minecraft.screen.slot.SlotActionType;
 import java.util.Random;
 
-public class AutoInventoryShuffle extends Module {
+public class InventoryShuffle extends Module {
     private final Random random = new Random();
-    public AutoInventoryShuffle() {
-        super(ChiShiAddon.CATEGORY, "auto-inventory-shuffle", "AutoInventoryShuffle");
+    public InventoryShuffle() {
+        super(ChiShiAddon.CATEGORY, "inventory-shuffle", "AutoInventoryShuffle");
     }
 
     @EventHandler
