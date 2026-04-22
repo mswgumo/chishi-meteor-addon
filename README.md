@@ -31,3 +31,6 @@
  - 执行 `cd chishi-meteor-addon`
 
  - 执行 `gradlew build`
+
+# 声明
+ - 使用类似meteor的Hack客户端仅限与类似2B2T、3C3U之类的无规则服务器，请不要在非无规则服务器使用
