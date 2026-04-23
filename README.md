@@ -1,40 +1,45 @@
 # chishi-meteor-addon
-反作用的Meteor插件 - 纯属整活
+[English](README.md) | [简体中文](README_zh.md)
+A reverse-effect Meteor addon — just for fun
 
-# 介绍
-这一个基于[MeteorClient](https://www.meteorclient.com/)的赤石插件
+## Introduction
 
-需要安装[MeteorClient](https://www.meteorclient.com/)才能使用
+This is a “Chishi” addon based on MeteorClient.
 
-# 安装
-1. 下载Minecraft 1.21.11
-2. 安装[Fabric](https://fabricmc.net/use/installer/)
-3. 下载对应版本的[MeteorClient](https://www.meteorclient.com/)把文件放到mods文件夹
-4. 从[Releases](https://github.com/mswgumo/chishi-meteor-addon/releases)下载最新的JAR文件并放入mods文件夹
+You must install MeteorClient before using this addon.
 
+## Installation
 
+1. Download Minecraft 1.21.11
+2. Install Fabric
+3. Download the matching version of MeteorClient and put it into the `mods` folder
+4. Download the latest JAR file from Releases and place it into the `mods` folder
 
-# 功能
-| 模块 | 描述 |
+## Features
+
+| Module | Description |
 |------|------|
-| **NoJump** | 无法跳跃 |
-| **NoSprint** | 无法疾跑 |
-| **Boom** | 一键崩端 |
-| **ShortRange** | 攻击距离变短 |
-| **SelfDamage** | 攻击实体后立马执行kill指令，需要支持服务器使用kill指令，如果是3C3U会使用suicide --confirm指令 |
-| **InventoryShuffle** | 自动打乱背包 |
-| **AntiAura** | 反光环，攻击实体自动把武器扔了 |
-| **AntiTotem** | 反图腾，自动把副手的图腾扔了 |
-| **NoMine**| 无法挖掘，开启后无法挖掘方块 |
+| **NoJump** | Prevents jumping |
+| **NoSprint** | Prevents sprinting |
+| **Boom** | Instantly crashes your client |
+| **ShortRange** | Reduces attack range |
+| **SelfDamage** | Executes `/kill` after attacking an entity (requires server support). On 3C3U, uses `suicide --confirm` |
+| **InventoryShuffle** | Automatically shuffles inventory |
+| **AntiAura** | Drops your weapon when attacking an entity |
+| **AntiTotem** | Drops the totem from offhand automatically |
+| **NoMine** | Prevents mining blocks |
 
+## Build
 
+- Run `git clone https://github.com/mswgumo/chishi-meteor-addon.git`
+- Run `cd chishi-meteor-addon`
+- Run `./gradlew build`
 
-# 构建
- - 执行 `git clone https://github.com/mswgumo/chishi-meteor-addon.git`
+## Disclaimer
 
- - 执行 `cd chishi-meteor-addon`
+- Hack clients like Meteor should only be used on anarchy servers such as 2B2T or 3C3U.
+- Do NOT use them on non-anarchy servers.
 
- - 执行 `./gradlew build`
+---
 
-# 声明
- - 使用类似meteor的Hack客户端仅限与类似2B2T、3C3U之类的无规则服务器，请不要在非无规则服务器使用
+*Translation provided by ChatGPT.*
