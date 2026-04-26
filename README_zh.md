@@ -1,5 +1,5 @@
 # chishi-meteor-addon
-[English](README.md) | [简体中文](README_zh.md)
+[English](README.md) | [简体中文](README_zh.md) | [Esperanto](README_eo.md)
 反作用的Meteor插件 - 纯属整活
 
 # 介绍
