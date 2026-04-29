@@ -29,6 +29,7 @@ public class ChiShiAddon extends MeteorAddon {
         Modules.get().add(new AntiAura());
         Modules.get().add(new AntiTotem());
         Modules.get().add(new NoMine());
+        Modules.get().add(new TalkNonsense());
         // Commands
 //        Commands.add(new CommandExample());
 
