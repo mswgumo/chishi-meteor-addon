@@ -30,6 +30,7 @@ public class ChiShiAddon extends MeteorAddon {
         Modules.get().add(new AntiTotem());
         Modules.get().add(new NoMine());
         Modules.get().add(new TalkNonsense());
+        Modules.get().add(new FPSKiller());
         // Commands
 //        Commands.add(new CommandExample());
 
