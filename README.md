@@ -28,6 +28,7 @@ You must install MeteorClient before using this addon.
 | **AntiAura** | Drops your weapon when attacking an entity |
 | **AntiTotem** | Drops the totem from offhand automatically |
 | **NoMine** | Prevents mining blocks |
+| **TalkNonsense** | Makes the player talk nonsense |
 
 ## Build
 

@@ -25,6 +25,7 @@ Necesas instali MeteorClient por uzi ĝin
 | **AntiAura** | Kontraŭ-aŭro: post atako aŭtomate forĵetas la armilon |
 | **AntiTotem** | Kontraŭ-totemo: aŭtomate forĵetas la totemon el la malĉefa mano |
 | **NoMine** | Ne eblas minadi blokojn; kiam aktivigita, blokoj ne povas esti minataj |
+| **TalkNonsense** | Faras la ludanton paroli sensencaĵojn |
 
 # Konstruado
 - Rulu `git clone https://github.com/mswgumo/chishi-meteor-addon.git`
