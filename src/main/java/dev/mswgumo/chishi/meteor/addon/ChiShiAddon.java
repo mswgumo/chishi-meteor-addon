@@ -31,6 +31,7 @@ public class ChiShiAddon extends MeteorAddon {
         Modules.get().add(new NoMine());
         Modules.get().add(new TalkNonsense());
         Modules.get().add(new FPSKiller());
+        Modules.get().add(new Genshin());
         // Commands
 //        Commands.add(new CommandExample());
 
