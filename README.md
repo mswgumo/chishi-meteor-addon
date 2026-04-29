@@ -29,6 +29,8 @@ You must install MeteorClient before using this addon.
 | **AntiTotem** | Drops the totem from offhand automatically |
 | **NoMine** | Prevents mining blocks |
 | **TalkNonsense** | Makes the player talk nonsense |
+| FPSKiller | FPS Killer makes your game super laggy |
+| Genshin | Genshin Impact launched!!! |
 
 ## Build
 

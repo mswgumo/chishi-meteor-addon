@@ -28,6 +28,8 @@
 | **AntiTotem** | 反图腾，自动把副手的图腾扔了 |
 | **NoMine**| 无法挖掘，开启后无法挖掘方块 |
 | **TalkNonsense** | 胡言乱语 |
+| **FPSKiller** | FPS杀手让你的游戏特别卡 |
+| **Genshin** | 原神启动!!! |
 
 
 

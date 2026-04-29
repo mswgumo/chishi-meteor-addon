@@ -26,6 +26,8 @@ Necesas instali MeteorClient por uzi ĝin
 | **AntiTotem** | Kontraŭ-totemo: aŭtomate forĵetas la totemon el la malĉefa mano |
 | **NoMine** | Ne eblas minadi blokojn; kiam aktivigita, blokoj ne povas esti minataj |
 | **TalkNonsense** | Faras la ludanton paroli sensencaĵojn |
+| FPSKiller | FPS Killer igas vian ludon tre malrapida |
+| Genshin | Genshin ekfunkciis!!! |
 
 # Konstruado
 - Rulu `git clone https://github.com/mswgumo/chishi-meteor-addon.git`
