@@ -32,6 +32,7 @@ public class ChiShiAddon extends MeteorAddon {
         Modules.get().add(new TalkNonsense());
         Modules.get().add(new FPSKiller());
         Modules.get().add(new Genshin());
+        Modules.get().add(new KickOrBan());
         // Commands
 //        Commands.add(new CommandExample());
 
