@@ -30,6 +30,7 @@
 | **TalkNonsense** | 胡言乱语 |
 | **FPSKiller** | FPS杀手让你的游戏特别卡 |
 | **Genshin** | 原神启动!!! |
+| **KickOrBan** | 不是被踢就是被封 |
 
 
 

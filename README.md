@@ -31,6 +31,7 @@ You must install MeteorClient before using this addon.
 | **TalkNonsense** | Makes the player talk nonsense |
 | FPSKiller | FPS Killer makes your game super laggy |
 | Genshin | Genshin Impact launched!!! |
+| KickOrBan | Either kick or ban |
 
 ## Build
 
