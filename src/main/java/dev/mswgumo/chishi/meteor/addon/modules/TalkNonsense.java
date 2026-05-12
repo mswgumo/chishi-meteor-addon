@@ -11,6 +11,7 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 // 胡言乱语
 public class TalkNonsense extends Module {
@@ -23,6 +24,14 @@ public class TalkNonsense extends Module {
         .defaultValue(20)
         .build()
     );
+    public final Setting<Integer> Jitter = settings.getDefaultGroup().add(
+        new IntSetting.Builder()
+            .name("jitter")
+            .min(0)
+            .sliderRange(0, 1000)
+            .build()
+    );
+    Random random = new Random();
     int delayRemaining = 0;
     public TalkNonsense() {
         super(ChiShiAddon.CATEGORY, "talk-nonsense", "talk nonsense");
@@ -43,7 +52,6 @@ public class TalkNonsense extends Module {
                 StandardCharsets.UTF_8
             );
             // 用逗号和句号和换行来分割
-//            nonsenseTextList = List.of(nonsenseText.split("[，,。.\\n]"));
             nonsenseTextList = new ArrayList<>(
                 List.of(nonsenseText.split("[，,。.\\n]"))
             );
@@ -70,7 +78,8 @@ public class TalkNonsense extends Module {
                 mc.player.networkHandler.sendChatMessage(msg);
             }
             nonsenseTextList.removeFirst();
-            delayRemaining = Delay.get();
+            int jitter = random.nextInt(Jitter.get() * 2 + 1) - Jitter.get();
+            delayRemaining = Delay.get() + jitter;
         } else {
             delayRemaining--;
         }
