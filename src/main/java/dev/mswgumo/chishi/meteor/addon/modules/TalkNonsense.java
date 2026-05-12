@@ -36,6 +36,11 @@ public class TalkNonsense extends Module {
     public TalkNonsense() {
         super(ChiShiAddon.CATEGORY, "talk-nonsense", "talk nonsense");
     }
+    public int getDelay() {
+        int jitter = random.nextInt(Jitter.get() * 2 + 1) - Jitter.get();
+        return Delay.get() + jitter;
+    }
+
     @Override
     public void onActivate() {
         try {
@@ -78,8 +83,7 @@ public class TalkNonsense extends Module {
                 mc.player.networkHandler.sendChatMessage(msg);
             }
             nonsenseTextList.removeFirst();
-            int jitter = random.nextInt(Jitter.get() * 2 + 1) - Jitter.get();
-            delayRemaining = Delay.get() + jitter;
+            delayRemaining = getDelay();
         } else {
             delayRemaining--;
         }
