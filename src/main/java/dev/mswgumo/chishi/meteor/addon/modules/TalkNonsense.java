@@ -41,6 +41,19 @@ public class TalkNonsense extends Module {
         return Delay.get() + jitter;
     }
 
+    public boolean send() {
+        if (mc.player == null) return false;;
+        String msg = nonsenseTextList.getFirst();
+        // 去除非法字符
+        msg = msg.replaceAll("[\\p{Cntrl}&&[^\n\t]]", "");
+        // 防止有空格
+        if (msg.isBlank()) {
+            return false;
+        }
+        mc.player.networkHandler.sendChatMessage(msg);
+        return true;
+    }
+
     @Override
     public void onActivate() {
         try {
@@ -75,12 +88,8 @@ public class TalkNonsense extends Module {
             return;
         };
         if (delayRemaining <= 0) {
-            String msg = nonsenseTextList.getFirst();
-            // 去除非法字符
-            msg = msg.replaceAll("[\\p{Cntrl}&&[^\n\t]]", "");
-            // 防止有空格
-            if (!msg.isBlank()) {
-                mc.player.networkHandler.sendChatMessage(msg);
+            if (!send()) {
+                return;
             }
             nonsenseTextList.removeFirst();
             delayRemaining = getDelay();
