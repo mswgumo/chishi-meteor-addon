@@ -59,7 +59,7 @@ public class TalkNonsense extends Module {
         try {
             // 打开文件
             InputStream nonsenseTextStream = ChiShiAddon.class.getResourceAsStream(
-                "/assets/chishi/TalkNonsense.txt"
+                "/assets/chishi-addon/TalkNonsense.txt"
             );
             if (nonsenseTextStream == null) {
                 throw new IOException("File not found");

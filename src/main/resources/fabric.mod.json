@@ -10,7 +10,7 @@
   "contact": {
     "sources": "https://github.com/mswgumo/chishi-meteor-addon"
   },
-  "icon": "assets/chishi/icon.png",
+  "icon": "assets/chishi-addon/icon.png",
   "environment": "client",
   "entrypoints": {
     "meteor": [
