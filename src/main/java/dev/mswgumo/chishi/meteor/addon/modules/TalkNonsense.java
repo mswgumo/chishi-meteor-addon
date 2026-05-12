@@ -18,7 +18,7 @@ public class TalkNonsense extends Module {
     public final Setting<Integer> Delay = settings.getDefaultGroup().add(
         new IntSetting.Builder()
         .name("Delay")
-        .range(0, 1000)
+        .min(0)
         .sliderRange(0, 1000)
         .defaultValue(20)
         .build()
