@@ -15,13 +15,37 @@ import java.util.Random;
 
 // 胡言乱语
 public class TalkNonsense extends Module {
+    public enum DelayModeEnum {
+        RangeRand,
+        TextScaleRand
+    }
+
     List<String> nonsenseTextList;
+
+    public final Setting<DelayModeEnum> DelayMode = settings.getDefaultGroup().add(
+        new EnumSetting.Builder<DelayModeEnum>()
+            .name("DelayMode")
+            .defaultValue(DelayModeEnum.TextScaleRand)
+            .build()
+    );
+    public final Setting<Integer> CharacterMultiplier = settings.getDefaultGroup().add(
+        new IntSetting.Builder()
+            .name("Character-Multiplier")
+            .min(0)
+            .sliderRange(0, 1000)
+            .defaultValue(20)
+            .visible(() -> DelayMode.get().equals(DelayModeEnum.TextScaleRand))
+            .build()
+    );
+
+
     public final Setting<Integer> Delay = settings.getDefaultGroup().add(
         new IntSetting.Builder()
         .name("Delay")
         .min(0)
         .sliderRange(0, 1000)
         .defaultValue(20)
+        .visible(() -> DelayMode.get().equals(DelayModeEnum.RangeRand))
         .build()
     );
     public final Setting<Integer> Jitter = settings.getDefaultGroup().add(
@@ -29,6 +53,7 @@ public class TalkNonsense extends Module {
             .name("jitter")
             .min(0)
             .sliderRange(0, 1000)
+            .visible(() -> DelayMode.get().equals(DelayModeEnum.RangeRand))
             .build()
     );
     Random random = new Random();
@@ -37,8 +62,15 @@ public class TalkNonsense extends Module {
         super(ChiShiAddon.CATEGORY, "talk-nonsense", "talk nonsense");
     }
     public int getDelay() {
-        int jitter = random.nextInt(Jitter.get() * 2 + 1) - Jitter.get();
-        return Delay.get() + jitter;
+        if (nonsenseTextList.isEmpty()) return 0;
+        if (DelayMode.get().equals(DelayModeEnum.TextScaleRand)) {
+            String text = nonsenseTextList.getFirst();
+            return CharacterMultiplier.get() * text.codePointCount(0, text.length());
+        } else {
+            int jitter = random.nextInt(Jitter.get() * 2 + 1) - Jitter.get();
+            return Delay.get() + jitter;
+        }
+
     }
 
     public boolean send() {
