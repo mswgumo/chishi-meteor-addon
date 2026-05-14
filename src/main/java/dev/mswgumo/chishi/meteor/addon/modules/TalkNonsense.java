@@ -73,6 +73,12 @@ public class TalkNonsense extends Module {
             .visible(() -> DelayMode.get().equals(DelayModeEnum.RangeRand))
             .build()
     );
+    public final Setting<Boolean> Suffix = settings.getDefaultGroup().add(
+        new BoolSetting.Builder()
+            .name("Suffix")
+            .defaultValue(false)
+            .build()
+    );
     Random random = new Random();
     int delayRemaining = 0;
     public TalkNonsense() {
@@ -101,6 +107,7 @@ public class TalkNonsense extends Module {
         if (msg.isBlank()) {
             return false;
         }
+        if (Suffix.get()) msg = msg + (random.nextInt(9000) + 1000);
         mc.player.networkHandler.sendChatMessage(msg);
         return true;
     }
