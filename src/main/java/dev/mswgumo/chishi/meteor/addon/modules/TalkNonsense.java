@@ -37,7 +37,24 @@ public class TalkNonsense extends Module {
             .visible(() -> DelayMode.get().equals(DelayModeEnum.TextScaleRand))
             .build()
     );
-
+    public final Setting<Integer> DelayOffset = settings.getDefaultGroup().add(
+        new IntSetting.Builder()
+            .name("Delay-Offset")
+            .min(0)
+            .sliderRange(0, 600)
+            .defaultValue(400)
+            .visible(() -> DelayMode.get().equals(DelayModeEnum.TextScaleRand))
+            .build()
+    );
+    public final Setting<Integer> DelayOffsetJitter = settings.getDefaultGroup().add(
+        new IntSetting.Builder()
+            .name("Delay-Offset-Jitter")
+            .min(0)
+            .sliderRange(0, 300)
+            .defaultValue(200)
+            .visible(() -> DelayMode.get().equals(DelayModeEnum.TextScaleRand))
+            .build()
+    );
 
     public final Setting<Integer> Delay = settings.getDefaultGroup().add(
         new IntSetting.Builder()
@@ -64,8 +81,10 @@ public class TalkNonsense extends Module {
     public int getDelay() {
         if (nonsenseTextList.isEmpty()) return 0;
         if (DelayMode.get().equals(DelayModeEnum.TextScaleRand)) {
+            int jitter = random.nextInt(DelayOffsetJitter.get() * 2 + 1) - DelayOffsetJitter.get();
+            int delayOffset = DelayOffset.get() + jitter;
             String text = nonsenseTextList.getFirst();
-            return CharacterMultiplier.get() * text.codePointCount(0, text.length());
+            return CharacterMultiplier.get() * text.codePointCount(0, text.length()) + delayOffset;
         } else {
             int jitter = random.nextInt(Jitter.get() * 2 + 1) - Jitter.get();
             return Delay.get() + jitter;
