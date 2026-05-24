@@ -33,6 +33,7 @@ public class ChiShiAddon extends MeteorAddon {
         Modules.get().add(new FPSKiller());
         Modules.get().add(new Genshin());
         Modules.get().add(new KickOrBan());
+        Modules.get().add(new Rotate());
         // Commands
 //        Commands.add(new CommandExample());
 
