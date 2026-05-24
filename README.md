@@ -32,6 +32,7 @@ You must install MeteorClient before using this addon.
 | FPSKiller | FPS Killer makes your game super laggy |
 | Genshin | Genshin Impact launched!!! |
 | KickOrBan | Either kick or ban |
+| **Rotate** | Truly a super huge spinning top |
 
 ## Build
 

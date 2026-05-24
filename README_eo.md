@@ -29,6 +29,7 @@ Necesas instali MeteorClient por uzi ĝin
 | FPSKiller | FPS Killer igas vian ludon tre malrapida |
 | Genshin | Genshin ekfunkciis!!! |
 | KickOrBan | Aŭ elĵetita, aŭ malpermesita |
+| **Rotate** | Vere giganta turbo |
 
 # Konstruado
 - Rulu `git clone https://github.com/mswgumo/chishi-meteor-addon.git`
