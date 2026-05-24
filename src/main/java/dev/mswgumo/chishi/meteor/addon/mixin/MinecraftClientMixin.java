@@ -13,6 +13,7 @@ import com.mojang.logging.LogUtils;
 import dev.mswgumo.chishi.meteor.addon.modules.Boom;
 import meteordevelopment.meteorclient.systems.modules.Modules;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.util.crash.CrashReport;
 import org.slf4j.Logger;
 import org.slf4j.Marker;
 import org.spongepowered.asm.mixin.Mixin;
@@ -34,5 +35,18 @@ public class MinecraftClientMixin {
             return;
         }
         LOGGER.error(marker, string, throwable);
+    }
+
+    @Redirect(method = "run", at = @At(
+        value = "INVOKE",
+        target = "Lnet/minecraft/client/MinecraftClient;printCrashReport(Lnet/minecraft/util/crash/CrashReport;)V"
+    ))
+    public void onCrashReport(MinecraftClient instance, CrashReport crashReport) {
+        Boom boom = Modules.get().get(Boom.class);
+        if (boom == null) return;
+        if (boom.isActive() && boom.AntiErrorLog.get()) {
+            return;
+        }
+        instance.printCrashReport(crashReport);
     }
 }
