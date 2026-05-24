@@ -12,6 +12,8 @@ package dev.mswgumo.chishi.meteor.addon.mixin;
 import dev.mswgumo.chishi.meteor.addon.modules.Boom;
 import meteordevelopment.meteorclient.systems.modules.Modules;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.util.crash.CrashReport;
+import net.minecraft.util.crash.ReportType;
 import org.slf4j.Logger;
 import org.slf4j.Marker;
 import org.spongepowered.asm.mixin.Mixin;
@@ -33,16 +35,4 @@ public class MinecraftClientMixin {
         LOGGER.error(marker, string, throwable);
     }
 
-    // 在阻止错误报告写入报错堆栈
-    @Redirect(method = "saveCrashReport", at = @At(
-        value = "INVOKE",
-        target = "Ljava/lang/String;valueOf(Ljava/lang/Object;)Ljava/lang/String;"
-    ))
-    private static String onValueOf(Object obj) {
-        Boom boom = Modules.get().get(Boom.class);
-        if (boom == null || (boom.isActive() && boom.AntiErrorLog.get())) {
-            return "";
-        }
-        return String.valueOf(obj);
-    }
 }
