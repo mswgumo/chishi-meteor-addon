@@ -10,6 +10,12 @@ public class Rotate extends Module {
     public Rotate() {
         super(ChiShiAddon.CATEGORY, "Rotate", "Super Rotate!!!");
     }
+    @Override
+    public void onActivate() {
+        if (mc.player == null) return;
+        this.yaw = (int) mc.player.getYaw();
+    }
+
     @EventHandler
     public void onTick(TickEvent.Post event) {
         if (mc.player == null) return;
