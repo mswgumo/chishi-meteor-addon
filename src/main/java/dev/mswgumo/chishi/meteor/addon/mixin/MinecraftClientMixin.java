@@ -9,18 +9,14 @@
 
 package dev.mswgumo.chishi.meteor.addon.mixin;
 
-import com.mojang.logging.LogUtils;
 import dev.mswgumo.chishi.meteor.addon.modules.Boom;
 import meteordevelopment.meteorclient.systems.modules.Modules;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.util.crash.CrashReport;
 import org.slf4j.Logger;
 import org.slf4j.Marker;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
-
-import java.util.Objects;
 
 @Mixin(MinecraftClient.class)
 public class MinecraftClientMixin {
@@ -37,16 +33,16 @@ public class MinecraftClientMixin {
         LOGGER.error(marker, string, throwable);
     }
 
-    @Redirect(method = "run", at = @At(
+    // 在阻止错误报告写入报错堆栈
+    @Redirect(method = "saveCrashReport", at = @At(
         value = "INVOKE",
-        target = "Lnet/minecraft/client/MinecraftClient;printCrashReport(Lnet/minecraft/util/crash/CrashReport;)V"
+        target = "Ljava/lang/String;valueOf(Ljava/lang/Object;)Ljava/lang/String;"
     ))
-    public void onCrashReport(MinecraftClient instance, CrashReport crashReport) {
+    private static String onValueOf(Object obj) {
         Boom boom = Modules.get().get(Boom.class);
-        if (boom == null) return;
-        if (boom.isActive() && boom.AntiErrorLog.get()) {
-            return;
+        if (boom == null || (boom.isActive() && boom.AntiErrorLog.get())) {
+            return "";
         }
-        instance.printCrashReport(crashReport);
+        return String.valueOf(obj);
     }
 }
